@@ -35,6 +35,7 @@ public class LineActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "onClick: 开始绘制");
                 lineView.start();
             }
         });

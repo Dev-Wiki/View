@@ -111,7 +111,7 @@ public class LineView extends View {
 
     public void start() {
         if (timer == null) {
-            timer = new CountDownTimer(TIME_PAGE * (totalCount - index), TIME_PAGE) {
+            timer = new CountDownTimer(TIME_PAGE * (totalCount - index - 1), TIME_PAGE) {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     index++;
@@ -141,8 +141,10 @@ public class LineView extends View {
     }
 
     public void reset() {
-        timer.cancel();
-        timer = null;
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
         index = 0;
         invalidate();
     }
